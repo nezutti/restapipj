@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app" class="app">
+    <input type="button" class="open-btn" v-on:click="changeIsvisible" value="開く">
+    <div class="modal"  v-show="isvisible" v-on:click.self="changeIsvisible">
+      <div class="modalWindow">
+        <div class="modalWindowContent">
+          <h2>モダールウィンドウ</h2>
+          <input type="button" value="閉じる" v-on:click.self="changeIsvisible">
+        </div>
+      </div>
+    </div>
+      
+  </div>
+  <script>
+    const vm=new Vue({
+      el:"#app",
+    data:function(){
+      return{
+        isvisible:false,
+        
+      }
+    },
+    methods:{
+      changeIsvisible(){
+        this.isvisible=!this.isvisible
+      }
+
+      
+
+    }
+  
+  })
+  </script>
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      outline: 1px solid red !important;
+
+    }
+
+
+    html,body{
+    height: 100%;
+    width:100%;
+       }
+
+    
+    .app{
+      height:100%;
+      width:100%;
+      position:relative;
+    }
+
+    
+
+   
+
+    .modal{
+
+         
+      height:100%;
+      width:100%;
+      background-color:grey;
+      position:absolute;
+      z-index:5;
+    }
+
+
+    .modalWindow{
+      background-color:white;
+      height:20%;
+      width:40%;
+      margin:200px auto;
+
+    }
+
+    .modalWindowContent{
+      margin:auto;
+      PADDING-top:30PX;
+     
+      width:80%;
+      height:50%;
+      TEXT-ALIGN:CENTER;
+    
+    }
+
+    h2{
+      font-size:15px;
+    }
+
+    .open-btn{
+      position:absolute;
+      z-index:0;
+    }
+
+    
+
+
+    
+    
+  </style>
+</body>
+</html>
